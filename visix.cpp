@@ -101,7 +101,7 @@ FXDEFMAP(VisixWindow) VisixWindowMap[] = {
 
 FXIMPLEMENT(VisixWindow, FXMainWindow, VisixWindowMap, ARRAYNUMBER(VisixWindowMap));
 
-VisixWindow::VisixWindow(FXApp *a) : FXMainWindow(a, "Visix", ico_mainicon, NULL, DECOR_ALL, 0,0,0,0) {
+VisixWindow::VisixWindow(FXApp *a) : FXMainWindow(a, "Visix", ico_mainicon, NULL, DECOR_ALL, 0,0,480,360) {
 	topdock = new FXDockSite(this, LAYOUT_SIDE_TOP|LAYOUT_FILL_X, 0,0,0,0, 0,0,0,-1);
 	
 	// menubar
@@ -155,7 +155,7 @@ VisixWindow::VisixWindow(FXApp *a) : FXMainWindow(a, "Visix", ico_mainicon, NULL
 
 
 
-	new FXStatusBar(this, LAYOUT_FILL_X|LAYOUT_SIDE_BOTTOM|STATUSBAR_WITH_DRAGCORNER);
+	new FXStatusBar(this, LAYOUT_FILL_X|LAYOUT_SIDE_BOTTOM|STATUSBAR_WITH_DRAGCORNER, 0,0,0,0, 0,0,2,0, 0,0);
 
 	FXPacker* frame = new FXPacker(this, FRAME_NORMAL|LAYOUT_FILL_X|LAYOUT_FILL_Y);
 	frame->setBackColor(a->getBackColor());
