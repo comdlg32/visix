@@ -11,7 +11,7 @@ PREFIX=/usr/local
 
 SOURCES = visix.cxx
 OBJECTS = visix.o
-ICONS = res/*.gif
+ICONS = res/*.gif res/toolbar/*.gif
 EXECUTABLE = visix
 
 CXXFLAGS += `fox-config --cflags`
