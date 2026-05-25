@@ -7,6 +7,11 @@ class VisixWindow : public FXMainWindow {
 	FXDECLARE(VisixWindow)
 
 private:
+	FXDockSite*     topdock;
+	
+	FXToolBarShell* tsmenubar;
+	FXMenuBar*      menubar;
+
 	FXButton* btn;
 
 protected:
@@ -36,6 +41,25 @@ FXDEFMAP(VisixWindow) VisixWindowMap[] = {
 FXIMPLEMENT(VisixWindow, FXMainWindow, VisixWindowMap, ARRAYNUMBER(VisixWindowMap));
 
 VisixWindow::VisixWindow(FXApp *a) : FXMainWindow(a, "Visix", mainIcon, NULL, DECOR_ALL, 0,0,0,0) {
+	topdock = new FXDockSite(this, LAYOUT_SIDE_TOP|LAYOUT_FILL_X);
+	
+	tsmenubar = new FXToolBarShell(this);
+	menubar = new FXMenuBar(topdock, tsmenubar, LAYOUT_FILL_X|FRAME_RAISED);
+
+	new FXToolBarGrip(menubar, menubar, FXMenuBar::ID_TOOLBARGRIP,TOOLBARGRIP_DOUBLE);
+
+	new FXMenuTitle(menubar, "&File");
+	new FXMenuTitle(menubar, "&Edit");
+	new FXMenuTitle(menubar, "&View");
+	new FXMenuTitle(menubar, "&Insert");
+	//new FXMenuTitle(menubar, "&Project");
+	//new FXMenuTitle(menubar, "&Build");
+	new FXMenuTitle(menubar, "&Tools");
+	new FXMenuTitle(menubar, "&Window");
+	new FXMenuTitle(menubar, "&Help");
+
+	new FXStatusBar(this, LAYOUT_FILL_X|LAYOUT_SIDE_BOTTOM|STATUSBAR_WITH_DRAGCORNER);
+
 	btn = new FXButton(this, "o/", NULL, this, ID_EXAMPLE);
 }
 

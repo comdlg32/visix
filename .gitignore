@@ -38,6 +38,7 @@
 *.exe
 *.out
 *.app
+/visix
 
 # Build directories
 build/
@@ -59,3 +60,4 @@ Testing/
 
 # backup files
 *~
+
